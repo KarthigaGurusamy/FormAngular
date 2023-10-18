@@ -1,0 +1,63 @@
+<div class="container d-flex justify-content-between">
+  <div class="container mt-5">
+    <h2>Form</h2>
+      <div class="form-group mt-3">
+        <label for="name">Name</label>
+        <div class="input-group">
+          <div>
+            <span class="input-group-text"><i class="bi bi-person"></i></span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter your name"
+            [(ngModel)]="name"
+          />
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <label for="phone">Phone Number</label>
+        <div class="input-group">
+          <div>
+            <span class="input-group-text"><i class="bi bi-phone"></i></span>
+          </div>
+          <input
+            type="tel"
+            class="form-control"
+            id="phone"
+            placeholder="Enter your phone number"
+            [(ngModel)]="phoneNumber"
+          />
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <label for="email">Email</label>
+        <div class="input-group">
+          <div>
+            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+          </div>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter your email address"
+            [(ngModel)]="email"
+          />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3" (click)="AddItem()">{{btn}}</button>
+  </div>
+  <div class="container mt-5 ms-5">
+    <h2>Items</h2>
+    <div class="d-flex align-items-center justify-content-between p-2 border-bottom border-primary" *ngFor="let item of Items">
+        <p class="fs-5 m-0">{{item.name}}</p>
+        <p class="fs-5 m-0">{{item.phoneNumber}}</p>
+        <p class="fs-5 m-0">{{item.email}}</p>
+        <div>
+            <button class="btn fs-5 text-primary" (click)="EditItem(item.id)">Edit</button>
+            <button class="btn fs-5 text-danger" (click)="DeleteItem(item.id)">Delete</button>
+        </div>
+    </div>
+  </div>
+</div>
